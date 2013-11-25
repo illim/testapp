@@ -1,5 +1,6 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<form novalidate class="simple-form">
+<input type="text" ng-model="address" autofocus="autofocus" />
+<button ng-click="find()">Find</button>
+</form>
+<div id="map-canvas" style="width: 500px; height: 200px" />
+
