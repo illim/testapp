@@ -2,13 +2,14 @@
 
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular', 'ngResource'], function(angular) {
 
-/* Services */
+    var service = angular.module('myApp.services', ['ngResource']).value('version', '0.1');
+    service.factory('msg', ['$resource', function($resource){
+        return $resource('msg', {}, {
+            submitMsg : {method:'POST'}
+        });
+    }]);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
 
 });

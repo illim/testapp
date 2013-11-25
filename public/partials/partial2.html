@@ -1,6 +1,17 @@
-<form novalidate class="simple-form">
-<input type="text" ng-model="address" autofocus="autofocus" />
-<button ng-click="find()">Find</button>
-</form>
-<div id="map-canvas" style="width: 500px; height: 200px" />
 
+<div id="map-canvas" style="width: 500px; height: 200px" ></div>
+
+<form id="initForm" novalidate>
+name : <input type="text" ng-model="msg.name"/>
+at <input type="text" ng-model="msg.location.address" autofocus="autofocus" />
+<button ng-click="find()" id="findBtn" >Find</button>
+</form>
+
+<div id="resume" >
+{{msg.name}} at {{msg.location.address}}
+</div>
+<form id="msgForm" style="display:none">
+title : <input type="text" ng-model="msg.title"/><br/>
+<textarea rows="4" cols="50" ng-model="msg.body"></textarea><br/>
+<button ng-click="send()">Send message</button>
+</form>

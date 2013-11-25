@@ -4,13 +4,15 @@
 
 require.config({
     paths: {
-        async: 'lib/require/async'
+        async: 'lib/require/async',
     }
 });
 
 // Declare here that angular is the US version - other locales can be easily substituted.
 
 define('angular', ['webjars!angular-locale_en-us.js'], function() {  return angular; });
+define('ngResource', ['webjars!angular-resource.js']);
+define("jquery", [ "webjars!jquery.js" ], function() { return $; });
 
 define('map', ['async!http://maps.google.com/maps/api/js?sensor=false'], function() { return google.maps ;});
 
