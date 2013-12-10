@@ -15,4 +15,5 @@ GET     /                           controllers.Assets.at(path="/public", file="
 # Map the JS resource paths
 GET     /*file                      controllers.Assets.at(path="/public", file)
 
-POST    /msg                        controllers.Msgs.submit
+PUT    /msg                        controllers.Msgs.submit
+POST   /msg                        controllers.Msgs.list

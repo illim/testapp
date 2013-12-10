@@ -28,3 +28,24 @@
   content: "";
   padding: 0;
 }
+
+.rounded-border,
+.rounded-corners {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.rounded-border {
+  border:1px solid grey;
+  padding: 0.5em;
+  margin: 0.2em;
+}
+
+.css-form input.ng-invalid.ng-dirty {
+background-color: #FA787E;
+}
+.css-form input.ng-valid.ng-dirty {
+background-color: #78FA89;
+}
