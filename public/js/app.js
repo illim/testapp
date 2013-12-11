@@ -20,13 +20,14 @@ define('map', ['async!http://maps.google.com/maps/api/js?sensor=false'], functio
 
 require(['angular'
          , './user/UserController'
-         , './msg/MsgController', './directives', './filters'
+         , './msg/MsgController', './msg/MsgsController', './directives', './filters'
          , './msg/MsgService', './user/UserService', 'angularStrap'],
-        function(angular, userController, msgController) {
+        function(angular, userController, msgController, msgsController) {
 
             angular.module('myApp', ['myApp.filters', 'myApp.directives', 'myApp.msgService', 'myApp.userService', '$strap.directives']).
-                controller('MsgCtrl', msgController).
                 controller('UserCtrl', userController).
+                controller('MsgCtrl', msgController).
+                controller('MsgsCtrl', msgsController).
                 config(['$routeProvider', function($routeProvider) {
                     $routeProvider.when('/community', {templateUrl: 'partials/partial2.html'});
                     $routeProvider.when('/about', {templateUrl: 'partials/partial1.html'});

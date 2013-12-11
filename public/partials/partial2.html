@@ -13,22 +13,18 @@
     </form>
     <div id="resume" style="display:none;">
       {{user.name}} at {{user.location.address}}
+      <a bs-popover="'partials/msg.html'" placement="bottom"><img src="img/plus.png" /> </a>
     </div>
   </div>
 
-  <div ng-controller="MsgCtrl" style="margin-left:10px">
-    <form id="msgForm" class="css-form,rounded-border" style="display:none">
-      title : <input type="text" ng-model="msg.title" ng-minlength="2" ng-maxlength="32"/><br/>
-      <textarea rows="4" cols="50" ng-model="msg.body"></textarea><br/>
-      <input type="submit" ng-click="send()"  value="Send message"/>
-    </form>
+  <div ng-controller="MsgsCtrl" style="margin-left:10px">
     <div  style="clear:both;">
       <hr/>
       <div ng-if="msgs.length == 0">
         pas de résultat
       </div>
       <div ng-repeat="m in msgs">
-        {{m.title}} ({{m.name}}) {{m.body}}
+        {{m.msg.title}} ({{m.user.name}}) {{m.msg.body}}
       </div>
     </div>
   </div>
