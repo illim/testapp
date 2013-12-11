@@ -1,0 +1,21 @@
+{
+    "name": "testapp",
+    "version": "0.1.0",
+    "description": "angular test app",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@git.cloudbees.com/illim/testapp.git"
+    },
+    "author": "illim",
+    "license": "BSD",
+    "gitHead": "2cbc249649c9518f0dc82558729e6811444c7002",
+    "readmeFilename": "README.md",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "~0.6.3"
+    }
+}
