@@ -2,23 +2,21 @@
 
 define(['jquery', "map"], function($) {
 
-var MsgsCtrl = function($scope, $http,  Msg, Usr) {
+var MsgsCtrl = function($scope, Msg, Usr) {
     $scope.msgs = [];
     function refreshMsgs(){
-        console.log("get msgs");
-        $scope.msgs = Msg.list(Usr.get().location, function(data){
-            console.log(data);
-        });
+        $scope.msgs = Msg.list(Usr.get().location);
     };
     $scope.$on('logged', function(event, user, location) {
         refreshMsgs();
+        $scope.$apply();
     });
     $scope.$on('newmsg', function(event) {
         refreshMsgs();
     });
 
 };
-MsgsCtrl.$inject = ['$scope', '$http', 'msgService', 'userService'];
+MsgsCtrl.$inject = ['$scope', 'msgService', 'userService'];
 
 return MsgsCtrl;
 

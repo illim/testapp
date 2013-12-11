@@ -21,7 +21,6 @@ object Msgs extends Controller {
   def submit = Action[JsValue](parse.json) { implicit request =>
     val userMsg = toObj[UserMsg](request.body)
     msgs += userMsg.user -> (userMsg :: msgs(userMsg.user))
-    println(msgs)
     Ok("yup")
   }
 
