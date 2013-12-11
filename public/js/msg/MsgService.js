@@ -1,7 +1,6 @@
-'use strict';
 
 define(['angular', 'ngResource'], function(angular) {
-
+    'use strict';
     var service = angular.module('myApp.msgService', ['ngResource']);
     service.factory('msgService', ['$resource', function($resource){
         return $resource('msg', {}, {

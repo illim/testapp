@@ -1,5 +1,3 @@
-'use strict';
-
 require.config({
     paths: {
         'async' : '../vendor/bower/requirejs-plugins/src/async',
@@ -18,11 +16,12 @@ define('ngResource', ['webjars!angular-resource.js']);
 define("jquery", [ "webjars!jquery.js" ], function() {  return $; });
 define('map', ['async!http://maps.google.com/maps/api/js?sensor=false'], function() { return google.maps ;});
 
-require(['angular'
-         , './user/UserController'
-         , './msg/MsgController', './msg/MsgsController', './directives', './filters'
-         , './msg/MsgService', './user/UserService', 'angularStrap'],
+require(['angular',
+         './user/UserController',
+         './msg/MsgController', './msg/MsgsController', './directives', './filters',
+         './msg/MsgService', './user/UserService', 'angularStrap'],
         function(angular, userController, msgController, msgsController) {
+            'use strict';
 
             angular.module('myApp', ['myApp.filters', 'myApp.directives', 'myApp.msgService', 'myApp.userService', '$strap.directives']).
                 controller('UserCtrl', userController).
@@ -34,7 +33,7 @@ require(['angular'
                     $routeProvider.otherwise({redirectTo: '/community'});
                 }]).
                 config(["$httpProvider", function ($httpProvider) {
-				            $httpProvider.interceptors.push(function($q){
+                    $httpProvider.interceptors.push(function($q){
                         return {
                             'request': function(config) {
                                 angular.element( "#loading" ).show();
@@ -46,7 +45,7 @@ require(['angular'
                             }
                         };
                     });
-      		      }]).
+                }]).
                 value('version', '0.1');
 
 

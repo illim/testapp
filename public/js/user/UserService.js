@@ -1,7 +1,5 @@
-'use strict';
-
 define(['angular', 'ngResource'], function(angular) {
-
+    'use strict';
     var service = angular.module('myApp.userService', []);
     service.factory('userService', [function(){
         var user = {

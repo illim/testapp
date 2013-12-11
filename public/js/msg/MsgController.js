@@ -1,7 +1,5 @@
-﻿'use strict';
-
-define(['jquery', "map"], function($) {
-
+﻿define(['jquery', "map"], function($) {
+'use strict';
 var MsgCtrl = function($scope, $rootScope, Msg, Usr) {
     var msg = {
         title : "besoin perceuse",

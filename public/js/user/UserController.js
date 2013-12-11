@@ -1,6 +1,5 @@
-﻿'use strict';
-define(["map"], function($) {
-
+﻿define(["map"], function($) {
+'use strict';
 var UserCtrl = function($scope, $rootScope, Usr) {
     $scope.user = Usr.get();
     var mapOptions = { zoom: 12  }; //  center: new google.maps.LatLng(48.833, 2.33),
