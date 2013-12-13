@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="vendor/bower/bootstrap/dist/css/bootstrap.min.css">
   <script data-main="js/app" src="lib/require.js"></script>
 </head>
-<body>
+<body onLoad="require(['myapp'])">
   <ul class="nav nav-tabs" bs-navbar>
     <li data-match-route="/community"><a href="#/community">community</a></li>
     <li data-match-route="/about"><a href="#/about">about</a></li>
@@ -16,6 +16,5 @@
   <div ng-view></div>
 
   <div>Angular seed app: v<span app-version></span></div>
-
 </body>
 </html>

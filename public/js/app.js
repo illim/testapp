@@ -14,41 +14,4 @@ require.config({
 define('angular', ['webjars!angular-locale_en-us.js'], function() { return angular; });
 define('ngResource', ['webjars!angular-resource.js']);
 define("jquery", [ "webjars!jquery.js" ], function() {  return $; });
-define('map', ['async!http://maps.google.com/maps/api/js?sensor=false'], function() { return google.maps ;});
-
-require(['angular',
-         './user/UserController',
-         './msg/MsgController', './msg/MsgsController', './directives', './filters',
-         './msg/MsgService', './user/UserService', 'angularStrap'],
-        function(angular, userController, msgController, msgsController) {
-            'use strict';
-
-            angular.module('myApp', ['myApp.filters', 'myApp.directives', 'myApp.msgService', 'myApp.userService', '$strap.directives']).
-                controller('UserCtrl', userController).
-                controller('MsgCtrl', msgController).
-                controller('MsgsCtrl', msgsController).
-                config(['$routeProvider', function($routeProvider) {
-                    $routeProvider.when('/community', {templateUrl: 'partials/partial2.html'});
-                    $routeProvider.when('/about', {templateUrl: 'partials/partial1.html'});
-                    $routeProvider.otherwise({redirectTo: '/community'});
-                }]).
-                config(["$httpProvider", function ($httpProvider) {
-                    $httpProvider.interceptors.push(function($q){
-                        return {
-                            'request': function(config) {
-                                angular.element( "#loading" ).show();
-                                return config || $q.when(config);
-                            },
-                            'response': function(response) {
-                                angular.element( "#loading" ).hide();
-                                return response || $q.when(response);
-                            }
-                        };
-                    });
-                }]).
-                value('version', '0.1');
-
-
-            angular.bootstrap(document, ['myApp']);
-
-        });
+define('map', ['async!http://maps.google.com/maps/api/js?sensor=false&region=FR'], function() { return google.maps ;});
