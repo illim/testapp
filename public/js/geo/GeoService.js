@@ -3,7 +3,7 @@ define(['angular', 'ngResource'], function(angular) {
 
     var service = angular.module('myApp.geoService', []);
     service.factory('geoService', [function(){
-        var marks = [];
+
         var geocoder = new google.maps.Geocoder();
 
         return {
@@ -15,14 +15,7 @@ define(['angular', 'ngResource'], function(angular) {
                         alert("Geocode was not successful for the following reason: " + status);
                     }
                 })
-            },
-            add : function(title, pos){
-                var markInfo = { title : title, position : pos};
-                if (!marks.contains(markInfo)){
-                    marks.append(markInfo);
-                }
-            },
-            getMarks : function(){ return marks; }
+            }
         };
     }]);
 

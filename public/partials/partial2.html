@@ -1,7 +1,7 @@
-<div style="overflow:hidden">
+<div style="overflow:hidden" ng-controller="MsgsCtrl">
 
 <div style="float: left; width : 50%">
-<div id="map-canvas" style="width: 100%; height: 200px" ></div>
+<geomap marks="marks" center="center"/>
 </div>
 
 <div style="float: right; height : 100%; width : 50%;">
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div ng-controller="MsgsCtrl" style="margin-left:10px">
+  <div style="margin-left:10px">
     <div  style="clear:both;">
       <hr/>
       <div ng-if="msgs.length == 0">

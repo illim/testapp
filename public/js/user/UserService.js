@@ -1,4 +1,4 @@
-define(['angular', 'ngResource', '../geo/GeoService'], function(angular) {
+define(['angular', 'ngResource'], function(angular) {
     'use strict';
     var service = angular.module('myApp.userService', ['myApp.geoService']);
     service.factory('userService', ['geoService', function(geoService){
