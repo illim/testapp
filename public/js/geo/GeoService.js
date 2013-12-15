@@ -1,4 +1,4 @@
-define(['angular', 'ngResource'], function(angular) {
+define(['angular', 'map'], function(angular) {
     'use strict';
 
     var service = angular.module('myApp.geoService', []);

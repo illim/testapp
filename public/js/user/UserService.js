@@ -1,8 +1,7 @@
-define(['angular', 'ngResource'], function(angular) {
+define(['angular'], function(angular) {
     'use strict';
     var service = angular.module('myApp.userService', ['myApp.geoService']);
     service.factory('userService', ['geoService', function(geoService){
-        console.log("build userservice");
         var user = {
             name : "Minh",
             location : {

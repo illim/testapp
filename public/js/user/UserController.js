@@ -1,4 +1,4 @@
-﻿define(["map"], function($) {
+﻿define(function() {
 'use strict';
 var UserCtrl = function($scope, $rootScope, Usr) {
     $scope.user = Usr.get();

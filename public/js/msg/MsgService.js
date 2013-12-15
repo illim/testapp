@@ -1,4 +1,3 @@
-
 define(['angular', 'ngResource'], function(angular) {
     'use strict';
     var service = angular.module('myApp.msgService', ['ngResource']);

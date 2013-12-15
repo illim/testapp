@@ -1,10 +1,11 @@
+define(function() {
 'use strict';
 
-define(['jquery', "map"], function($) {
-
 var MsgsCtrl = function($scope, Msg, Usr) {
-    $scope.msgs = [];
-    $scope.marks = [];
+    angular.extend($scope, {
+        msgs : [],
+        marks : []
+    });
 
     function addMark(title, pos){
         var markInfo = { title : title, position : pos};

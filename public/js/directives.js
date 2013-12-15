@@ -29,6 +29,9 @@ angular.module('myApp.directives', []).
                           new google.maps.Marker({map: map, position: m.position, title:m.name });
                       }
                   });
+                  if (newCol.length != markeds.length){
+                      // TODO clean markeds
+                  }
               });
           }
       };
