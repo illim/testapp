@@ -10,8 +10,8 @@ require.config({
     }
 });
 
-// !us version
-define('angular', ['webjars!angular-locale_en-us.js'], function() { return angular; });
-define('ngResource', ['webjars!angular-resource.js']);
 define("jquery", [ "webjars!jquery.js" ], function() {  return $; });
+// !us version
+define('angular', ['jquery', 'webjars!angular-locale_en-us.js'], function() { return angular; });
+define('ngResource', ['webjars!angular-resource.js']);
 define('map', ['async!http://maps.google.com/maps/api/js?sensor=false&region=FR'], function() { return google.maps ;});
