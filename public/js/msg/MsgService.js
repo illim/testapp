@@ -8,7 +8,7 @@ define(['angular', 'ngResource'], function(angular) {
             wsStart : function (loc, onMsg) {
                 console.log("start");
                 if (! ws){
-                    var url = "ws://localhost:8080/wscon/"+loc.lng()+"/"+loc.lat();
+                    var url = "ws://"+window.location.host+"/wscon/"+loc.lng()+"/"+loc.lat();
                     console.log("connect to " + url);
                     ws = new WebSocket(url);
                     ws.onopen = function(){ console.log("Socket has been opened!"); };
