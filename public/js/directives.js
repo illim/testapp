@@ -17,6 +17,14 @@ angular.module('myApp.directives', []).
               console.log("link");
               var mapOptions = { zoom: 12  }; //  center: new google.maps.LatLng(48.833, 2.33),
               var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+/**              function getLocation() {
+                  if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(showPosition);
+                  } else {
+                      console.log("Geolocation is not supported by this browser.");
+                  }
+              }*/
+
               var markeds = [];
               scope.$watchCollection("marks",function(newCol){
                   if (newCol.length ==1){
@@ -26,7 +34,7 @@ angular.module('myApp.directives', []).
                       var idx = markeds.indexOf(m);
                       if (idx == -1){
                           markeds.push(m);
-                          new google.maps.Marker({map: map, position: m.position, title:m.name });
+                          new google.maps.Marker({map: map, position: m.position, title:m.title  });
                       }
                   });
                   if (newCol.length != markeds.length){

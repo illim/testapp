@@ -7,11 +7,9 @@ var MsgCtrl = function($scope, $rootScope, Msg, Usr) {
             body : "réparation"
         },
         send :  function(){
-            Msg.submitMsg({
+            Msg.wsSubmit({
                 user : Usr.get(),
                 msg : this.msg
-            }, function(){
-                $rootScope.$broadcast('newmsg');
             });
         }
     });

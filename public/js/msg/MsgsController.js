@@ -15,16 +15,18 @@ var MsgsCtrl = function($scope, Msg, Usr) {
         }
     }
 
-    function refreshMsgs(){
-        $scope.msgs = Msg.list(Usr.get().location);
-    };
     $scope.$on('logged', function(event, user, location) {
-        refreshMsgs();
-        $scope.$apply();
-        addMark(user.name, location)
-    });
-    $scope.$on('newmsg', function(event) {
-        refreshMsgs();
+        Msg.wsStart(location, function(msg){
+            if (msg instanceof Array){
+                console.log("push msgs" + msg);
+                Array.prototype.push.apply($scope.msgs, msg);
+            } else {
+                console.log("push msg" + msg);
+                $scope.msgs.push(msg);
+            }
+            $scope.$apply();
+        });
+        addMark(user.name, location);
     });
 
 };

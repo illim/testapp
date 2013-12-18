@@ -12,8 +12,7 @@ GET     /webjars/*file              controllers.WebJarAssets.at(file)
 # Home page
 GET     /                           controllers.Assets.at(path="/public", file="index.html")
 
+GET    /wscon/:lng/:lat            controllers.Msgs.wscon(lng : Float, lat : Float)
+
 # Map the JS resource paths
 GET     /*file                      controllers.Assets.at(path="/public", file)
-
-PUT    /msg                        controllers.Msgs.submit
-POST   /msg                        controllers.Msgs.list
