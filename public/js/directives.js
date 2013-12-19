@@ -10,7 +10,8 @@ angular.module('myApp.directives', []).
       return {
           restrict: 'E',
           scope: {
-              marks: '='
+              marks: '=',
+              center : '='
           },
           template: '<div id="map-canvas" style="width: 100%; height: 200px" ></div>',
           link: function (scope, element, attrs) {
@@ -26,9 +27,12 @@ angular.module('myApp.directives', []).
               }*/
 
               var markeds = [];
+              var inited = false;
+
               scope.$watchCollection("marks",function(newCol){
-                  if (newCol.length ==1){
+                  if (! inited && newCol.length > 0){
                       map.setCenter(newCol[0].position);
+                      inited = true;
                   }
                   newCol.forEach(function(m){
                       var idx = markeds.indexOf(m);
@@ -39,6 +43,12 @@ angular.module('myApp.directives', []).
                   });
                   if (newCol.length != markeds.length){
                       // TODO clean markeds
+                  }
+              });
+
+              scope.$watch("center", function(center){
+                  if (!! center && !! center.position){
+                      map.setCenter(center.position);
                   }
               });
           }

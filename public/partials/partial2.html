@@ -24,7 +24,7 @@
         pas de résultat
       </div>
       <div ng-repeat="m in msgs">
-        {{m.msg.title}} ({{m.user.name}}) {{m.msg.body}}
+        {{m.msg.title}} (<a href="" ng-click="centerUser(m.user)">{{m.user.name}}</a>) {{m.msg.body}}
       </div>
     </div>
   </div>
