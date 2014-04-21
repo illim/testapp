@@ -11,8 +11,13 @@ var UserCtrl = function($scope, $rootScope, Usr) {
     });
 
     $scope.find = function(){
-        btn.prop("disabled", true);
-        Usr.set($scope.user.name, $scope.user.location.address, $rootScope);
+        var form = angular.element("#initForm");
+        if (form[0].checkValidity()){
+            //btn.prop("disabled", true);
+            Usr.set($scope.user.name, $scope.user.location.address, $rootScope);
+        } else {
+            alert("form not valid");
+        }
     };
 };
 UserCtrl.$inject = ['$scope', '$rootScope', 'userService'];

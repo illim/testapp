@@ -10,7 +10,6 @@ object ApplicationBuild extends Build {
     "org.webjars" % "angularjs" % "1.1.5-1",
     "org.webjars" % "requirejs" % "2.1.1",
 	  "org.webjars" % "jquery" % "2.0.3-1",
-    "net.liftweb" %% "lift-json" % "2.5",
     "org.webjars" %% "webjars-play" % "2.1.0-3")
 
   val main = play.Project(appName, appVersion, appDependencies)

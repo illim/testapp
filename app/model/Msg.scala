@@ -16,12 +16,9 @@ case class UserMsg(user : User, msg : Msg)
 
 object Formats {
   import play.api.libs.json._
-  import net.liftweb.json._
-  import net.liftweb.{json => liftjson}
 
-  // lol
-  implicit val format =DefaultFormats
-  def toObj[A : Manifest](json : JsValue) = liftjson.parse(json.toString).extract[A]
-  def toJson[A<:AnyRef : Manifest ](x : A) = Json.parse(Serialization.write(x))
-
+  implicit val locformat = Json.format[Loc]
+  implicit val userformat = Json.format[User]
+  implicit val msgformat = Json.format[Msg]
+  implicit val usermsgformat = Json.format[UserMsg]
 }

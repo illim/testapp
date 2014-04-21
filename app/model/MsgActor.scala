@@ -22,10 +22,10 @@ object MsgActor {
     (actor ? Join(loc)).map {
       case Connected(msgs, enumerator) =>
         val iteratee = Iteratee.foreach[JsValue] { event =>
-          val userMsg = toObj[UserMsg](event)
+          val userMsg = Json.fromJson[UserMsg](event).asOpt.get
           actor ! Talk(userMsg)
         }
-        val start = Enumerator(toJson(msgs))
+        val start = Enumerator(Json.toJson(msgs))
         val locEnum = start.andThen(
           enumerator.through(Enumeratee.collect{ case (u, json) if u.location.inRng(loc) =>
             json
@@ -62,7 +62,7 @@ class MsgActor extends Actor {
   }
 
   def notifyAll(userMsg : UserMsg) {
-    channel.push((userMsg.user, toJson(userMsg)))
+    channel.push((userMsg.user, Json.toJson(userMsg)))
   }
 
 }
